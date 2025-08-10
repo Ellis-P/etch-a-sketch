@@ -12,3 +12,5 @@ function generateGrid() {
     gridContainer.appendChild(tile);
   }
 }
+
+generateGrid();
