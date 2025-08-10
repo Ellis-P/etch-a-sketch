@@ -8,8 +8,10 @@ function createTile() {
 
 function generateGrid() {
   for (let i = 0; i < 16; i++) {
-    const tile = createTile();
-    gridContainer.appendChild(tile);
+    for (let j = 0; j < 16; j++) {
+      const tile = createTile();
+      gridContainer.appendChild(tile);
+    }
   }
 }
 
