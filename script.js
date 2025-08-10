@@ -1,8 +1,13 @@
 const gridContainer = document.querySelector(".grid-container");
 
+function changeTileColour(event) {
+  event.target.style.backgroundColor = "green";
+}
+
 function createTile() {
   const tile = document.createElement("div");
   tile.className = "tile";
+  tile.addEventListener("mouseenter", changeTileColour);
   return tile;
 }
 
