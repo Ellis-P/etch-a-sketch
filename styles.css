@@ -16,6 +16,5 @@ body {
 }
 
 .tile {
-  flex: 1 0 40px;
   background-color: rgb(255, 138, 138);
 }
