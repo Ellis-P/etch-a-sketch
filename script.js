@@ -6,7 +6,9 @@ function changeTileColour(event) {
   const r = getRandomNum();
   const g = getRandomNum();
   const b = getRandomNum();
+  let a = +(getComputedStyle(event.target).getPropertyValue("opacity"));
   event.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+  event.target.style.opacity = a - 0.1;
 }
 
 function createTile() {
