@@ -1,5 +1,3 @@
-const gridContainer = document.querySelector(".grid-container");
-
 function changeTileColour(event) {
   event.target.style.backgroundColor = "green";
 }
@@ -11,13 +9,35 @@ function createTile() {
   return tile;
 }
 
-function generateGrid() {
-  for (let i = 0; i < 16; i++) {
-    for (let j = 0; j < 16; j++) {
-      const tile = createTile();
-      gridContainer.appendChild(tile);
-    }
+function generateRow(userInputSize) {
+  const tileWidth = 640 / +userInputSize;
+  for (let i = 0; i < userInputSize; i++) {
+    const tile = createTile();
+    tile.style.width = `${tileWidth}px`;
+    gridContainer.appendChild(tile);
   }
 }
 
-generateGrid();
+function generateGrid(userInputSize) {
+  for (let i = 0; i < userInputSize; i++) {
+    generateRow(userInputSize);
+  }
+}
+
+function resetGrid() {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
+}
+
+const gridContainer = document.querySelector(".grid-container");
+const newGridBtn = document.querySelector(".new-grid-btn");
+
+newGridBtn.addEventListener("click", () => {
+  resetGrid();
+  let userInput = prompt("Choose a grid size from 1 - 100.");
+  while (isNaN(userInput) || userInput < 1 || userInput > 100) {
+    userInput = prompt("Please choose a valid grid size, 1 - 100!")
+  }
+  generateGrid(userInput);
+});
