@@ -1,5 +1,12 @@
+function getRandomNum() {
+  return Math.floor((Math.random() * 256));
+}
+
 function changeTileColour(event) {
-  event.target.style.backgroundColor = "green";
+  const r = getRandomNum();
+  const g = getRandomNum();
+  const b = getRandomNum();
+  event.target.style.backgroundColor = `rgb(${r},${g},${b})`;
 }
 
 function createTile() {
