@@ -44,9 +44,14 @@ const newGridBtn = document.querySelector(".new-grid-btn");
 
 newGridBtn.addEventListener("click", () => {
   resetGrid();
-  let userInput = prompt("Choose a grid size from 1 - 100.");
-  while (isNaN(userInput) || userInput < 1 || userInput > 100) {
-    userInput = prompt("Please choose a valid grid size, 1 - 100!")
+  let userInput;
+  
+  while ((isNaN(userInput) || userInput < 1 || userInput > 100)) {
+    userInput = Math.round(+prompt("Please choose a grid size, 1 - 100!"))
+    if (!userInput) break;
   }
+
   generateGrid(userInput);
 });
+
+generateGrid(16);
